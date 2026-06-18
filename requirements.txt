@@ -3,4 +3,3 @@ uvicorn
 supabase
 python-jose[cryptography]
 pydantic
-s
