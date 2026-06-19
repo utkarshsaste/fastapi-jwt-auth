@@ -1,32 +1,40 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 
-from database import supabase
-from auth import create_access_token
+from .database import supabase
+from .auth import create_access_token
 
 app = FastAPI()
+
 
 class User(BaseModel):
     email: str
     password: str
 
+
 @app.get("/")
 def home():
     return {"message": "FastAPI + JWT + Supabase"}
 
+
 @app.post("/signup")
 def signup(user: User):
-    response = supabase.auth.sign_up(
-        {
-            "email": user.email,
-            "password": user.password
-        }
-    )
+    try:
+        response = supabase.auth.sign_up(
+            {
+                "email": user.email,
+                "password": user.password
+            }
+        )
 
-    return {
-        "message": "Signup successful",
-        "user": str(response.user)
-    }
+        return {
+            "message": "Signup successful",
+            "user": str(response.user)
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
+
 
 @app.post("/login")
 def login(user: User):
@@ -38,10 +46,8 @@ def login(user: User):
             }
         )
 
-        print("LOGIN RESPONSE:", response)
-
         if response.user is None:
-            return {"error": "User not found"}
+            return {"error": "Invalid email or password"}
 
         token = create_access_token(
             {"sub": user.email}
@@ -53,7 +59,4 @@ def login(user: User):
         }
 
     except Exception as e:
-        print("ERROR:", e)
-        return {
-            "error": str(e)
-        }
+        return {"error": str(e)}
