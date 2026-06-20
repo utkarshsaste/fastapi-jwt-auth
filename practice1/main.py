@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+from pathlib import Path
 
 from .database import supabase
 from .auth import create_access_token
