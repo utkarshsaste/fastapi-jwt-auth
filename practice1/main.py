@@ -8,6 +8,8 @@ from .auth import create_access_token
 
 app = FastAPI()
 
+BASE_DIR = Path(__file__).resolve().parent
+
 
 class User(BaseModel):
     email: str
@@ -16,7 +18,7 @@ class User(BaseModel):
 
 @app.get("/")
 def home():
-    return FileResponse("page1.html")
+    return FileResponse(BASE_DIR / "page1.html")
 
 
 @app.post("/signup")
