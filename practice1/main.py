@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from .database import supabase
@@ -14,7 +15,7 @@ class User(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "FastAPI + JWT + Supabase"}
+    return FileResponse("page1.html")
 
 
 @app.post("/signup")
