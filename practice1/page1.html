@@ -336,9 +336,11 @@ using the latest technologies.
 
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-import { supabaseConfig } from './config.js';
 
-const supabaseClient = createClient(supabaseConfig.url, supabaseConfig.anonKey);
+const supabaseClient = createClient(
+    "https://pyvfduogxwrcjchaupwt.supabase.co",
+    "sb_publishable_LRDga9yp_cBwwxQaKzaJFA_w0Dj9KL-"
+);
 
 function showPage(pageId){
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
