@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 fastapi
 uvicorn
 supabase
 python-jose[cryptography]
 pydantic
+=======
+fastapi
+uvicorn
+supabase
+python-jose[cryptography]
+pydantic
+>>>>>>> 8f69a94992bd1f125a989792d0e906cfa7f57bce
