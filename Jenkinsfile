@@ -3,21 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Download Code') {
-            steps {
-                echo 'Downloading code from GitHub'
-            }
-        }
-
         stage('Install Packages') {
             steps {
-                bat 'pip install -r requirements.txt'
+                bat '"C:\\Users\\DELL\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Check Python Files') {
             steps {
-                bat 'dir'
+                bat '"C:\\Users\\DELL\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m py_compile *.py'
             }
         }
 
