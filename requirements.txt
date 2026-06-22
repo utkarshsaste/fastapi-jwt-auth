@@ -1,12 +1,6 @@
- HEAD
-fastapi
-uvicorn
+fastapi==0.110.0
+uvicorn==0.27.0
 supabase
 python-jose[cryptography]
-pydantic
-fastapi
-uvicorn
-supabase
-python-jose[cryptography]
-pydantic
- 8f69a94992bd1f125a989792d0e906cfa7f57bce
+pydantic==2.7.0
+passlib[bcrypt]
