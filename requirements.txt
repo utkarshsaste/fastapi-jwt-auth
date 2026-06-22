@@ -4,7 +4,6 @@ uvicorn
 supabase
 python-jose[cryptography]
 pydantic
-=======
 fastapi
 uvicorn
 supabase
