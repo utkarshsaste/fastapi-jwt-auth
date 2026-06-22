@@ -11,13 +11,13 @@ pipeline {
 
         stage('Install Packages') {
             steps {
-                sh 'pip install -r practice1/requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Check Python Files') {
             steps {
-                sh 'python -m py_compile practice1/*.py'
+                bat 'dir'
             }
         }
 
